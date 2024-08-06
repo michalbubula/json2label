@@ -3,7 +3,9 @@
 This program converts annotated ground truth of historical documents (Labelme JSON format) into labeled images (PNG format).
 
 1. Installation:
-`pip install -r requirements.txt`
+`sh
+pip install -r requirements.txt`
 
-2. Usage:
-`python json2label.py labelme2png -dj "directory of GT JSON files" -do "directory where the output lables will be written in the png format"`
+3. Usage:
+`sh
+python json2label.py labelme2png -dj "directory of GT JSON files" -do "directory where the output lables will be written in the png format"`
