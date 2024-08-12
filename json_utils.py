@@ -4,12 +4,8 @@ import cv2
 import os
 from tqdm import tqdm
 
-#dir_jsons_in = "/home/michalbubula/labelme/jsons"
-#dir_labels_out = "/home/michalbubula/labelme/labels"
 
-#ls_jsons = os.listdir(dir_jsons_in)
-
-def json_converter(json_dir, png_out):
+def json_converter(json_dir, png_out, type_out):
     f = open(json_dir)
     data = json.load(f)
     size = {
@@ -18,7 +14,8 @@ def json_converter(json_dir, png_out):
     }
     image = np.zeros((size["height"], size["width"], 3), np.uint8)
     image[:, :] = (0, 0, 0) #background color
-    colors = {
+    color2d = (1,1,1)
+    color3d = {
         "paragraph": (255, 0, 0),
         "header": (0, 255, 255),
         "pagenumber": (0, 255, 0),
@@ -27,25 +24,32 @@ def json_converter(json_dir, png_out):
     
     for key in data["shapes"]:        
         points = np.array(key["points"], dtype=np.int32)
+        
         if key['label'] == "paragraph":
-            cv2.fillPoly(image, pts = [points], color = colors["paragraph"])
-        elif key['label'] == "header":
-            cv2.fillPoly(image, pts = [points], color = colors["header"])
-        elif key['label'] == "pagenumber": 
-            cv2.fillPoly(image, pts = [points], color = colors["pagenumber"])
-        elif key['label'] == "dropcapital": 
-            cv2.fillPoly(image, pts = [points], color = colors["dropcapital"])    
+            if type_out == "3d":
+                cv2.fillPoly(image, pts = [points], color = color3d["paragraph"])
+            elif type_out == "2d":
+                cv2.fillPoly(image, pts = [points], color = color2d)
+                
+        if key['label'] == "header":
+            if type_out == "3d":
+                cv2.fillPoly(image, pts = [points], color = color3d["header"])
+            elif type_out == "2d":
+                cv2.fillPoly(image, pts = [points], color = color2d)
+                
+        if key['label'] == "pagenumber": 
+            if type_out == "3d":
+                cv2.fillPoly(image, pts = [points], color = color3d["pagenumber"])
+            elif type_out == "2d":
+                cv2.fillPoly(image, pts = [points], color = color2d)
+                
+        if key['label'] == "dropcapital": 
+            if type_out == "3d":
+                cv2.fillPoly(image, pts = [points], color = color3d["dropcapital"])    
+            elif type_out == "2d":
+                cv2.fillPoly(image, pts = [points], color = color2d)
             
     json_tail = os.path.split(json_dir)
     json_name = json_tail[1].split('.')[0]
     png_name = os.path.join(png_out, json_name + ".png")
     cv2.imwrite(png_name, image)
-  
-"""  
-ls_jsons = os.listdir(dir_jsons_in)
-    
-for ind in tqdm(ls_jsons):
-    json_name = os.path.join(dir_jsons_in, ind)
-    json_converter(json_name)
-    
-"""
