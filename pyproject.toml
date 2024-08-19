@@ -7,10 +7,6 @@ name = "json2label"
 readme = "README.md"
 dynamic = ["dependencies"]
 
-[project.scripts]
-eynollah = "qurator.eynollah.cli:main"
-ocrd-eynollah-segment = "qurator.eynollah.ocrd_cli:main"
-
 [project.urls]
 Homepage = "https://github.com/michalbubula/json2label"
 Repository = "https://github.com/michalbubula/json2label.git"
