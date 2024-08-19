@@ -5,6 +5,11 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "json2label"
 version = "0.1.0"
+authors = [
+    {name = "Micha≥ Bubula"},
+    {name = "Staatsbibliothek zu Berlin - Preuﬂischer Kulturbesitz"},
+]
+description = "JSON to Label converter"
 readme = "README.md"
 dynamic = ["dependencies"]
 
