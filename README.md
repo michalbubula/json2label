@@ -12,7 +12,7 @@ pip install -e .
 
 ```
 python json2label.py labelme2png  \
-   -dj  "directory of the GT JSON files"  \
+   -di  "directory of the GT JSON files"  \
    -do  "directory of the output PNG lables"  \
    -to  "output type. Just pass "3d" (encoded with RGB color for visibility) or "2d" (used for training a model)"
 ```
