@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "json2label"
+version = "0.1.0"
 readme = "README.md"
 dynamic = ["dependencies"]
 
