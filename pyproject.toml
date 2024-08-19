@@ -7,7 +7,7 @@ name = "json2label"
 version = "0.1.0"
 authors = [
     {name = "Michal Bubula"},
-    {name = "Staatsbibliothek zu Berlin - Preuﬂischer Kulturbesitz"},
+    {name = "Staatsbibliothek zu Berlin - Preussischer Kulturbesitz"},
 ]
 description = "JSON to Label converter"
 readme = "README.md"
