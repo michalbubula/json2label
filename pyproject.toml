@@ -13,7 +13,7 @@ Homepage = "https://github.com/michalbubula/json2label"
 Repository = "https://github.com/michalbubula/json2label.git"
 
 [project.scripts]
-eynollah = "json2label:main"
+json2label = "json2label:main"
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
