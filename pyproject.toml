@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "json2label"
+readme = "README.md"
+dynamic = ["dependencies"]
+
+[project.scripts]
+eynollah = "qurator.eynollah.cli:main"
+ocrd-eynollah-segment = "qurator.eynollah.ocrd_cli:main"
+
+[project.urls]
+Homepage = "https://github.com/michalbubula/json2label"
+Repository = "https://github.com/michalbubula/json2label.git"
+
+[project.scripts]
+eynollah = "json2label:main"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["."]
